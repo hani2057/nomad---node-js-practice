@@ -5,19 +5,22 @@ const PORT = 4000;
 // express 앱 만들기
 const app = express();
 
-// express app의 get 메서드에 전달되는 콜백함수는 req, res 객체를 가짐
-const handleHome = (req, res) => {
-  // res 객체의 send 메서드는 응답하고 end 메서드는 종료시킴
-  // string, html, json 등 응답할 수 있음(express 공식페이지 참고)
-  return res.send("response!");
-  // return res.end()
+// express app의 모든 컨트롤러는 req, res 객체와 next 함수를 가짐
+// next를 호출하면 해당 컨트롤러가 호출된 함수의 다음 컨트롤러(콜백함수)가 호출됨
+const gossipMiddleware = (req, res, next) => {
+  console.log(`Someone is going to: ${req.url}`);
+  next();
+};
+
+const handleHome = (req, res, next) => {
+  return res.end();
 };
 
 const handleLogin = (req, res) => {
   return res.send("login here.");
 };
 
-app.get("/", handleHome);
+app.get("/", gossipMiddleware, handleHome);
 app.get("/login", handleLogin);
 
 const handleListening = () =>
