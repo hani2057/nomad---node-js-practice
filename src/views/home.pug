@@ -1,16 +1,4 @@
-//- pug is a template engine 
+extends base.pug
 
-//- 퍼그 작성법 
-//- 모두 소문자로 작성
-//- attribute는 괄호 안에 작성
-//- 구조는 탭으로 구분함
-//- 닫는 태그 필요 없음
-
-doctype html 
-html(lang='ko')
-  head 
-    title Wetube 
-  body 
-    h1 Welcome to Wetube 
-  //- include를 할 때는 현재 파일 위치에서 상대경로로 입력
-  include partials/footer.pug
+block content
+  h1 Home
