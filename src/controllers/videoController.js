@@ -1,10 +1,7 @@
-const fakeUser = {
-  username: "hani",
-  loggedIn: false,
-};
-
-export const trending = (req, res) =>
-  res.render("home", { pageTitle: "Home", fakeUser }); // 렌더할 파일명은 띄어쓰기 없이 소문자로 작성
+export const trending = (req, res) => {
+  const videos = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  return res.render("home", { pageTitle: "Home", videos });
+}; // 렌더할 파일명은 띄어쓰기 없이 소문자로 작성
 export const see = (req, res) => res.render("watch");
 export const edit = (req, res) => res.render("edit");
 export const search = (req, res) => res.send("Search video");
