@@ -10,8 +10,10 @@ doctype html
 html(lang='ko')
   head 
     title #{pageTitle} | Wetube
+    link(rel='stylesheet' href='https://unpkg.com/mvp.css')
   body 
-    //- content라는 이름의 block을 생성
-    block content 
+    main
+      //- content라는 이름의 block을 생성
+      block content 
   //- include를 할 때는 현재 파일 위치에서 상대경로로 입력
   include partials/footer.pug
