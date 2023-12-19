@@ -17,7 +17,10 @@ app.set("view engine", "pug");
 // view 파일들을 찾을 경로를 세팅
 app.set("views", process.cwd() + "/src/views");
 
+// middlewares
 app.use(logger);
+app.use(express.urlencoded({ extended: true })); // form의 body를 js object로 인코딩해줌. 공식문서 참조
+
 app.use("/", globalRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);

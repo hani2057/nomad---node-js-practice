@@ -11,8 +11,7 @@ const videoRouter = express.Router();
 
 videoRouter.get("upload", upload);
 videoRouter.get("/:id(\\d+)", watch); // \d+ 부분은 정규표현식(숫자-digit-만)
-videoRouter.get("/:id/edit", getEdit);
-videoRouter.post("/:id/edit", postEdit);
+videoRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
 videoRouter.get("/:id/delete", deleteVideo);
 
 export default videoRouter;
