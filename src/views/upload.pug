@@ -1,0 +1,7 @@
+extends base
+
+block content 
+  form(method="POST")
+    //- name을 설정해줘야 req.body로 식별 가능.
+    input(placeholder='Title', required, type='text', name='title')
+    input(type='submit', value='Upload Video')
