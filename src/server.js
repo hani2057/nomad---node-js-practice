@@ -1,3 +1,4 @@
+import "./db"; // db와 연결
 import express from "express";
 import morgan from "morgan";
 import globalRouter from "./routers/globalRouter";
